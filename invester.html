@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capstaq - Investor Network</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1A2B4D",
+              "background": "#F8F9FA",
+              "text-body": "#212529",
+              "border-light": "#E9ECEF"
+            },
+            fontFamily: {
+              "display": ["Playfair Display", "serif"],
+              "body": ["Lato", "sans-serif"],
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "0.75rem",
+              "xl": "1rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background font-body text-text-body">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+<header class="w-full bg-background border-b border-border-light sticky top-0 z-50">
+<div class="container mx-auto px-4">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-primary text-2xl font-bold font-display">Capstaq</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-text-body text-sm font-bold leading-normal hover:text-primary transition-colors" href="home.html">Home</a>
+<a class="text-text-body text-sm font-bold leading-normal hover:text-primary transition-colors" href="about.html">About</a>
+<a class="text-text-body text-sm font-bold leading-normal hover:text-primary transition-colors" href="partner.html">Partner</a>
+<a class="text-text-body text-sm font-bold leading-normal hover:text-primary transition-colors" href="deal.html">Submit</a>
+<a class="text-text-body text-sm font-bold leading-normal hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<div class="hidden md:flex items-center gap-3">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity">
+<span class="truncate">Submit Your Deal</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-background border border-border-light text-primary text-sm font-bold leading-normal tracking-wide hover:bg-gray-100 transition-colors">
+<span class="truncate">Schedule a Call</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- HeroSection -->
+<section class="py-20 md:py-32">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6 text-left">
+<h1 class="text-text-body text-5xl md:text-6xl font-bold leading-tight font-display">Invest with Proven Operators</h1>
+<p class="text-text-body/80 text-lg leading-relaxed">Access exclusive, pre-vetted real estate investment opportunities from top-tier sponsors. Be the first to know when our investor network launches.</p>
+<div class="mt-4">
+<button class="flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity">
+<span class="truncate">Join Waitlist</span>
+</button>
+</div>
+</div>
+<div class="w-full h-80 md:h-auto md:aspect-square bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Abstract architectural lines and shapes suggesting modern real estate development" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAq9OTiFqZfkQWqe94JsXNnom3XFeUxFB4LYPy3tB6QLASW-FcqMkNQKsM05czBS0KY9EQVMsLmBJ9C_EkopdH-wEgubwP-9g4LFkpbgDzeX-DHK11WASOY-t2HAjsWxsNXz6c3SMwI2_YDcoz55r8AAEojjudn4UsawWeKyRB985xf6N6Em29NwQAdNaQcLE6Q3dJjCPFe6AVSSNmIRyQQ3Wy2Sbl8EK_UyxZod8-58dofIP58WJEjpz7lOXafD_n-05aAeSbTpq4J");'></div>
+</div>
+</div>
+</section>
+<!-- FeatureSection -->
+<section class="py-20 md:py-24 bg-white border-y border-border-light">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-text-body text-4xl md:text-5xl font-bold font-display">Why Invest with Capstaq?</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4 rounded-xl border border-border-light bg-background p-8 text-center shadow-sm">
+<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined" style="font-size: 32px;">verified_user</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-text-body text-2xl font-bold font-display">Pre-vetted Deals</h3>
+<p class="text-text-body/80 text-base leading-relaxed">Every deal on our platform undergoes a rigorous due diligence process to ensure quality and mitigate risk.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-border-light bg-background p-8 text-center shadow-sm">
+<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined" style="font-size: 32px;">groups</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-text-body text-2xl font-bold font-display">Strong Sponsors</h3>
+<p class="text-text-body/80 text-base leading-relaxed">We partner exclusively with experienced real estate operators who have a proven track record of success.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-border-light bg-background p-8 text-center shadow-sm">
+<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined" style="font-size: 32px;">trending_up</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-text-body text-2xl font-bold font-display">Real Returns</h3>
+<p class="text-text-body/80 text-base leading-relaxed">Focus on tangible, asset-backed investments with the potential for strong, consistent financial returns.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTASection -->
+<section class="py-20 md:py-32">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<div class="flex flex-col gap-4">
+<h2 class="text-text-body text-4xl md:text-5xl font-bold font-display">Get Early Access to Premier Real Estate Deals</h2>
+<p class="text-text-body/80 text-lg leading-relaxed">Sign up for the waitlist and be the first to be notified when the Capstaq Investor Network is live.</p>
+</div>
+<div class="mt-8 flex justify-center">
+<button class="flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity">
+<span class="truncate">Join Waitlist</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-border-light">
+<div class="container mx-auto px-4 py-16">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+<div class="lg:col-span-1">
+<h3 class="text-lg font-bold font-display text-text-body mb-3">About Capstaq</h3>
+<p class="text-sm text-text-body/80 leading-relaxed">Capstaq is a premier platform connecting real estate operators with capital partners, streamlining the equity-raising process through technology and a curated network.</p>
+<div class="flex mt-6 space-x-4">
+<!-- Social Icons will go here -->
+</div>
+</div>
+<div class="lg:col-span-1">
+<h3 class="text-lg font-bold font-display text-text-body mb-3">Contact Us</h3>
+<ul class="space-y-2 text-sm text-text-body/80">
+<li><a class="hover:text-primary" href="mailto:info@capstaq.com">info@capstaq.com</a></li>
+<li><a class="hover:text-primary" href="tel:+1234567890">+1 (234) 567-890</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h3 class="text-lg font-bold font-display text-text-body mb-3">Stay Updated</h3>
+<p class="text-sm text-text-body/80 mb-4">Subscribe to our newsletter for the latest updates and market insights.</p>
+<form class="flex flex-col sm:flex-row gap-2">
+<input class="w-full px-4 py-2 text-sm border-border-light rounded-lg focus:ring-primary focus:border-primary" placeholder="Enter your email" type="email"/>
+<button class="flex-shrink-0 px-6 py-2 bg-primary text-white font-bold text-sm rounded-lg hover:opacity-90 transition-opacity" type="submit">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-border-light text-center text-sm text-text-body/60">
+<p>© 2024 Capstaq. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

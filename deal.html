@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capstaq - Submit Your Deal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #FAFAFA;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .form-input, .form-select, .form-textarea {
+            border-color: #E0E0E0;
+            color: #333333;
+        }
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: #9ca3af;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: #6A0DAD;
+            box-shadow: 0 0 0 1px #6A0DAD;
+            outline: none;
+        }
+        .primary-btn {
+            background-color: #6A0DAD;
+            color: #FFFFFF;
+        }
+        .primary-btn:hover {
+            background-color: #FFBF00;
+        }
+        .secondary-btn {
+            background-color: #F3F0F4;
+            color: #333333;
+        }
+        .secondary-btn:hover {
+            background-color: #e9e6ec;
+        }
+    </style>
+</head>
+<body class="bg-[#FAFAFA] text-[#333333]">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Global Header -->
+<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-[#E0E0E0] bg-white/80 px-4 py-3 backdrop-blur-sm sm:px-8 md:px-10">
+<div class="flex w-full max-w-7xl items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-6 text-[#6A0DAD]">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-[#333333] text-2xl font-bold font-['Playfair_Display']">Capstaq</h2>
+</div>
+<nav class="hidden items-center gap-8 lg:flex">
+<a class="text-[#333333] text-sm font-bold leading-normal hover:text-[#6A0DAD]" href="home.html">Home</a>
+<a class="text-[#333333] text-sm font-bold leading-normal hover:text-[#6A0DAD]" href="about.html">About</a>
+<a class="text-[#333333] text-sm font-bold leading-normal hover:text-[#6A0DAD]" href="partner.html">Partner</a>
+<a class="text-[#6A0DAD] text-sm font-bold leading-normal" href="deal.html">Submit</a>
+<a class="text-[#333333] text-sm font-bold leading-normal hover:text-[#6A0DAD]" href="contact.html">Contact</a>
+</nav>
+<div class="hidden items-center gap-2 md:flex">
+<button class="primary-btn flex h-10 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 text-sm font-bold leading-normal transition-colors">
+<span>Submit Your Deal</span>
+</button>
+<button class="secondary-btn flex h-10 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 text-sm font-bold leading-normal transition-colors">
+<span>Schedule a Call</span>
+</button>
+</div>
+<button class="p-2 lg:hidden">
+<span class="material-symbols-outlined text-3xl text-[#333333]">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex flex-1 justify-center px-4 py-12 sm:px-6 lg:px-8">
+<div class="w-full max-w-3xl">
+<!-- Form Container -->
+<div class="rounded-xl border border-[#E0E0E0] bg-white p-6 shadow-sm sm:p-8 md:p-12">
+<div class="flex flex-col gap-3 text-center mb-8">
+<h1 class="text-3xl font-black text-[#333333] sm:text-4xl md:text-5xl">Submit Your Deal for Review</h1>
+<p class="text-base font-normal text-gray-600">Connect with our network of capital partners. Fill out the form below to get started.</p>
+</div>
+<form action="#" class="space-y-8" method="POST">
+<div>
+<h3 class="mb-4 border-b border-[#E0E0E0] pb-2 text-xl font-bold font-['Playfair_Display'] text-[#333333]">Deal Information</h3>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+<label class="flex flex-col">
+<p class="pb-2 text-sm font-bold text-[#333333]">Deal Name</p>
+<input class="form-input flex w-full flex-1 rounded-lg border bg-white p-3 text-sm font-normal" placeholder="Enter the name of the deal" type="text"/>
+</label>
+<label class="flex flex-col">
+<p class="pb-2 text-sm font-bold text-[#333333]">Asset Type</p>
+<select class="form-select flex w-full flex-1 rounded-lg border bg-white p-3 text-sm font-normal">
+<option disabled="" selected="">Select an asset type</option>
+<option value="multifamily">Multifamily</option>
+<option value="office">Office</option>
+<option value="industrial">Industrial</option>
+<option value="retail">Retail</option>
+<option value="hospitality">Hospitality</option>
+</select>
+</label>
+<label class="flex flex-col sm:col-span-2">
+<p class="pb-2 text-sm font-bold text-[#333333]">Location</p>
+<input class="form-input flex w-full flex-1 rounded-lg border bg-white p-3 text-sm font-normal" placeholder="e.g., City, State" type="text"/>
+</label>
+<label class="flex flex-col sm:col-span-2">
+<p class="pb-2 text-sm font-bold text-[#333333]">Deal Summary</p>
+<textarea class="form-textarea w-full rounded-lg border bg-white p-3 text-sm font-normal" placeholder="Provide a brief summary of the investment opportunity..." rows="4"></textarea>
+</label>
+</div>
+</div>
+<div>
+<h3 class="mb-4 border-b border-[#E0E0E0] pb-2 text-xl font-bold font-['Playfair_Display'] text-[#333333]">Supporting Documents</h3>
+<div class="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-[#E0E0E0] p-6 text-center">
+<span class="material-symbols-outlined text-5xl text-gray-400">upload_file</span>
+<p class="mt-2 text-sm font-bold text-[#333333]">Upload Deck</p>
+<p class="text-xs text-gray-500">Drag &amp; drop files here or</p>
+<label class="mt-2 cursor-pointer text-sm font-bold text-[#6A0DAD] underline hover:text-[#FFBF00]" for="file-upload">
+                                    browse files
+                                </label>
+<input class="sr-only" id="file-upload" name="file-upload" type="file"/>
+</div>
+</div>
+<div>
+<h3 class="mb-4 border-b border-[#E0E0E0] pb-2 text-xl font-bold font-['Playfair_Display'] text-[#333333]">Contact Information</h3>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+<label class="flex flex-col">
+<p class="pb-2 text-sm font-bold text-[#333333]">Contact Name</p>
+<input class="form-input flex w-full flex-1 rounded-lg border bg-white p-3 text-sm font-normal" placeholder="Your full name" type="text"/>
+</label>
+<label class="flex flex-col">
+<p class="pb-2 text-sm font-bold text-[#333333]">Email Address</p>
+<input class="form-input flex w-full flex-1 rounded-lg border bg-white p-3 text-sm font-normal" placeholder="you@company.com" type="email"/>
+</label>
+<label class="flex flex-col sm:col-span-2">
+<p class="pb-2 text-sm font-bold text-[#333333]">Phone Number</p>
+<input class="form-input flex w-full flex-1 rounded-lg border bg-white p-3 text-sm font-normal" placeholder="(123) 456-7890" type="tel"/>
+</label>
+</div>
+</div>
+<div class="flex items-start">
+<div class="flex h-5 items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-[#6A0DAD] focus:ring-[#6A0DAD]" id="confidentiality" name="confidentiality" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="text-gray-600" for="confidentiality">I acknowledge and agree to the <a class="font-bold text-[#6A0DAD] underline hover:text-[#FFBF00]" href="#">confidentiality terms</a>.</label>
+</div>
+</div>
+<div class="pt-4">
+<button class="primary-btn flex w-full cursor-pointer items-center justify-center rounded-lg px-6 py-4 text-base font-bold leading-normal transition-colors" type="submit">
+<span>Submit for Review</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Global Footer -->
+<footer class="bg-white">
+<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+<div class="border-t border-[#E0E0E0] pt-12">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-12">
+<div class="md:col-span-4">
+<h4 class="text-lg font-bold font-['Playfair_Display'] text-[#333333]">About Capstaq</h4>
+<p class="mt-2 text-sm text-gray-600">Capstaq is a premier platform connecting real estate professionals with a network of capital partners to fund their next big deal.</p>
+<div class="mt-4 flex space-x-4">
+<a class="text-gray-400 hover:text-[#6A0DAD]" href="#"><span class="sr-only">LinkedIn</span><svg class="h-6 w-6" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+<a class="text-gray-400 hover:text-[#6A0DAD]" href="#"><span class="sr-only">Twitter</span><svg class="h-6 w-6" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+</div>
+</div>
+<div class="md:col-span-3">
+<h4 class="text-lg font-bold font-['Playfair_Display'] text-[#333333]">Contact Us</h4>
+<ul class="mt-2 space-y-2 text-sm">
+<li class="flex items-center gap-2 text-gray-600"><span class="material-symbols-outlined text-lg">mail</span><span>contact@capstaq.com</span></li>
+<li class="flex items-center gap-2 text-gray-600"><span class="material-symbols-outlined text-lg">call</span><span>(555) 123-4567</span></li>
+</ul>
+</div>
+<div class="md:col-span-5">
+<h4 class="text-lg font-bold font-['Playfair_Display'] text-[#333333]">Stay Updated</h4>
+<p class="mt-2 text-sm text-gray-600">Subscribe to our newsletter for the latest insights and opportunities.</p>
+<form class="mt-4 flex w-full max-w-sm">
+<input class="form-input w-full rounded-l-lg border-r-0 p-3 text-sm focus:border-[#6A0DAD] focus:ring-0" placeholder="Enter your email" type="email"/>
+<button class="primary-btn rounded-r-lg px-4 text-sm font-bold transition-colors" type="submit">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="mt-12 border-t border-[#E0E0E0] pt-8 text-center text-sm text-gray-500">
+<p>© 2024 Capstaq. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
