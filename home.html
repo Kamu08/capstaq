@@ -1,293 +1,383 @@
 <!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capstaq — Capital Partner for Real Estate</title>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Capstaq - Your Real Estate Capital Partner</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind config -->
+  <script>
     tailwind.config = {
-      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            "primary": "#5A4FCF",
-            "secondary": "#FFC107",
-            "background-light": "#F8F9FA",
-            "background-dark": "#1b1121",
-            "text-light": "#2F4F4F",
-            "text-dark": "#F8F9FA",
-            "border-light": "#E9ECEF",
-            "border-dark": "#4a4a4a",
+            royal: '#4B0082',
+            plum: '#2E0854',
+            gold: '#D4AF37',
+            softwhite: '#F8F5F2',
+            muted: '#6B5A6A'
           },
           fontFamily: {
-            "display": ["Playfair Display", "serif"],
-            "body": ["Lato", "sans-serif"],
+            display: ['Playfair Display', 'serif'],
+            body: ['Poppins', 'sans-serif'],
           },
-          borderRadius: {
-            "DEFAULT": "0.5rem",
-            "lg": "0.75rem",
-            "xl": "1rem",
-            "full": "9999px"
-          },
-        },
-      },
+          boxShadow: {
+            card: '0 18px 50px rgba(16,12,25,0.08)'
+          }
+        }
+      }
     }
   </script>
-<style>
-    body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+
+  <style>
+    :root {
+      --royal: #6B2C91;
+      --plum: #4A1B5F;
+      --gold: #D4AF37;
+      --softwhite: #F8F5F2;
     }
+    html { scroll-behavior: smooth; }
+    body { background: var(--softwhite); color: var(--plum); font-family: Poppins, sans-serif; -webkit-font-smoothing:antialiased; }
+    .gold-underline::after { content: ""; display:block; height:4px; width:72px; margin-top:.6rem; border-radius:4px; background:linear-gradient(90deg,var(--gold), rgba(212,175,55,0.7)); }
+    .card-lift { transition: transform .28s ease, box-shadow .28s ease; }
+    .card-lift:hover { transform: translateY(-10px); box-shadow: var(--tw-shadow-card); }
+    .btn-gold { background: linear-gradient(90deg,var(--gold), #f0c95a); color: var(--plum); }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(212,175,55,0.12); }
+    .img-cover { object-fit: cover; width:100%; height:100%; transition: transform .6s cubic-bezier(.2,.9,.2,1); }
+    .img-hover-zoom:hover .img-cover { transform: scale(1.06); }
+    main { padding-top: 72px; }
   </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
-<div class="container mx-auto flex items-center justify-between whitespace-nowrap px-4 py-4">
-<div class="flex items-center gap-4">
-<div class="size-8 text-primary">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-<h2 class="text-text-light dark:text-text-dark text-2xl font-bold font-display leading-tight tracking-[-0.015em]">Capstaq</h2>
-</div>
-<div class="hidden md:flex flex-1 justify-center items-center gap-8">
-<a class="text-text-light dark:text-text-dark text-sm font-bold leading-normal hover:text-primary dark:hover:text-primary" href="home.html">Home</a>
-<a class="text-text-light dark:text-text-dark text-sm font-bold leading-normal hover:text-primary dark:hover:text-primary" href="about.html">About</a>
-<a class="text-text-light dark:text-text-dark text-sm font-bold leading-normal hover:text-primary dark:hover:text-primary" href="partner.html">Partner</a>
-<a class="text-text-light dark:text-text-dark text-sm font-bold leading-normal hover:text-primary dark:hover:text-primary" href="deal.html">Submit</a>
-<a class="text-text-light dark:text-text-dark text-sm font-bold leading-normal hover:text-primary dark:hover:text-primary" href="contact.html">Contact</a>
-</div>
-<div class="hidden md:flex gap-3">
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-<span class="truncate">Submit Your Deal</span>
-</button>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-secondary text-gray-900 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-<span class="truncate">Schedule a Call</span>
-</button>
-</div>
-</div>
-</header>
-<main class="flex-1">
-<!-- Hero Section -->
-<section class="py-24 sm:py-32">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-<div class="flex flex-col gap-6 text-left">
-<h1 class="font-display text-4xl font-black leading-tight tracking-tight text-text-light dark:text-text-dark sm:text-5xl lg:text-6xl">Raise LP Equity for Your Real Estate Deals</h1>
-<h2 class="text-lg font-normal leading-normal text-text-light/80 dark:text-text-dark/80">Capstaq is your dedicated capital partner, connecting experienced real estate professionals with the equity they need to close deals.</h2>
-<div class="flex flex-wrap gap-4 mt-4">
-<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-<span class="truncate">Submit Your Deal</span>
-</button>
-<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-secondary text-gray-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-<span class="truncate">Schedule a Call</span>
-</button>
-</div>
-</div>
-<div class="w-full h-80 md:h-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" data-alt="Abstract image of modern architectural detail with clean lines" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJnqC3xpOeiKUQCSnS7l0hXlf6c7kDzIcKyfJbnyAJcFyCRGeNJjNEaKaDPVBK8DAPYkByikuL_OiQJWA_nS4CfSNo78xqtNhcyUWrvJxHLzRhNko1zWQ01IRoFiHY_VWDpNa63YEQdCfiDqIw4zQcf6cxsb9Hci876tIjvkMUbr6L9ZtT3bDwq4FWKHUBRPoyj1tS0OBYALn3HuW6UCP__h2jNhkBGt2tBFZ02AMi-Lwt0hKXrl3_7pFvJn-QuvSKyr39NiU2N1Xc");'></div>
-</div>
-</div>
-</section>
-<!-- Our Focus -->
-<section class="py-16 sm:py-20 bg-white dark:bg-background-dark/50">
-<div class="container mx-auto px-4 text-center max-w-3xl">
-<h2 class="text-3xl font-bold font-display leading-tight tracking-tight text-primary sm:text-4xl">Our Focus</h2>
-<p class="mt-6 text-lg font-normal leading-relaxed text-text-light dark:text-text-dark">Capstaq is a dedicated capital partner for proven real estate professionals. We are not a crowdfunding platform; we provide strategic LP equity to help you succeed.</p>
-</div>
-</section>
-<!-- Who We Partner With -->
-<section class="py-16 sm:py-20">
-<div class="container mx-auto px-4">
-<div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 class="text-3xl font-bold font-display leading-tight tracking-tight text-text-light dark:text-text-dark sm:text-4xl">Who We Partner With</h2>
-<p class="text-lg text-text-light/80 dark:text-text-dark/80">We provide capital for established professionals across the real estate spectrum.</p>
-</div>
-<div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark/50 p-6 text-center items-center hover:shadow-xl transition-shadow">
-<span class="material-symbols-outlined text-primary text-5xl">domain</span>
-<h3 class="text-xl font-bold font-display text-text-light dark:text-text-dark">Sponsors</h3>
-<p class="text-text-light/80 dark:text-text-dark/80 text-sm leading-relaxed">Raising capital for your next acquisition.</p>
-</div>
-<div class="flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark/50 p-6 text-center items-center hover:shadow-xl transition-shadow">
-<span class="material-symbols-outlined text-primary text-5xl">foundation</span>
-<h3 class="text-xl font-bold font-display text-text-light dark:text-text-dark">Developers</h3>
-<p class="text-text-light/80 dark:text-text-dark/80 text-sm leading-relaxed">Securing equity for ground-up development projects.</p>
-</div>
-<div class="flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark/50 p-6 text-center items-center hover:shadow-xl transition-shadow">
-<span class="material-symbols-outlined text-primary text-5xl">storefront</span>
-<h3 class="text-xl font-bold font-display text-text-light dark:text-text-dark">Operators</h3>
-<p class="text-text-light/80 dark:text-text-dark/80 text-sm leading-relaxed">Funding for value-add and repositioning strategies.</p>
-</div>
-<div class="flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark/50 p-6 text-center items-center hover:shadow-xl transition-shadow">
-<span class="material-symbols-outlined text-primary text-5xl">real_estate_agent</span>
-<h3 class="text-xl font-bold font-display text-text-light dark:text-text-dark">Owners</h3>
-<p class="text-text-light/80 dark:text-text-dark/80 text-sm leading-relaxed">Capital for recapitalizations and strategic growth.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- How It Works -->
-<section class="py-16 sm:py-20 bg-white dark:bg-background-dark/50">
-<div class="container mx-auto px-4">
-<div class="text-center max-w-3xl mx-auto">
-<h2 class="text-3xl font-bold font-display text-text-light dark:text-text-dark sm:text-4xl">How It Works</h2>
-<p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">A streamlined process from submission to success in four simple steps.</p>
-</div>
-<div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-<!-- Connector Line -->
-<div class="hidden md:block absolute top-1/2 -translate-y-1/2 left-0 w-full h-px">
-<svg class="stroke-current text-border-light dark:text-border-dark" height="2" width="100%">
-<line stroke-dasharray="8 8" stroke-width="2" x1="0" x2="100%" y1="1" y2="1"></line>
-</svg>
-</div>
-<div class="flex flex-col items-center text-center gap-4 z-10">
-<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white border-4 border-background-light dark:border-background-dark/50">
-<span class="text-2xl font-bold">1</span>
-</div>
-<h3 class="text-xl font-bold font-display">Submit Deal</h3>
-<p class="text-sm text-text-light/80 dark:text-text-dark/80">Provide your project details through our secure online portal.</p>
-</div>
-<div class="flex flex-col items-center text-center gap-4 z-10">
-<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white border-4 border-background-light dark:border-background-dark/50">
-<span class="text-2xl font-bold">2</span>
-</div>
-<h3 class="text-xl font-bold font-display">Review &amp; Analysis</h3>
-<p class="text-sm text-text-light/80 dark:text-text-dark/80">Our expert team conducts a thorough due diligence process.</p>
-</div>
-<div class="flex flex-col items-center text-center gap-4 z-10">
-<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white border-4 border-background-light dark:border-background-dark/50">
-<span class="text-2xl font-bold">3</span>
-</div>
-<h3 class="text-xl font-bold font-display">Partner Matching</h3>
-<p class="text-sm text-text-light/80 dark:text-text-dark/80">We connect your deal with our network of capital partners.</p>
-</div>
-<div class="flex flex-col items-center text-center gap-4 z-10">
-<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white border-4 border-background-light dark:border-background-dark/50">
-<span class="text-2xl font-bold">4</span>
-</div>
-<h3 class="text-xl font-bold font-display">Get Funded</h3>
-<p class="text-sm text-text-light/80 dark:text-text-dark/80">Close your deal with the right equity partner by your side.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Asset Classes -->
-<section class="py-16 sm:py-20">
-<div class="container mx-auto px-4">
-<div class="text-center max-w-3xl mx-auto">
-<h2 class="text-3xl font-bold font-display text-text-light dark:text-text-dark sm:text-4xl">Asset Classes We Fund</h2>
-<p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">We have a broad investment mandate across key commercial real estate sectors.</p>
-</div>
-<div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="relative overflow-hidden rounded-lg group">
-<img class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-300" data-alt="Modern multifamily apartment building exterior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSjwyesnmBIep_vCJV18y5gZLT8TeHdDZLYTARcEZZPEHljvHgfd9rYWFxEgSJLxxKr89LPbz_PoEDApRS_M9jAFPWv2f9Z6BBfNC7CldhD2eYYK6xueWDq9e8a-1TXDFFBHn5u8kJqwMLdCRJ6znp5PPTVTHaCh30nwC8GgRL_8ifu2EkoqKCq2NhAcLFgRZ_wVAUkriEcqjmv3FTJ0JLwLI8eQj-rfCisbvDBZXwLD6Peb3Nc9ok4s7Xv2-4JpsKwq_tVUdMQDsm"/>
-<div class="absolute inset-0 bg-black/50 flex items-end p-6">
-<h3 class="text-2xl font-bold font-display text-white">Multifamily</h3>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg group">
-<img class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-300" data-alt="Brightly lit interior of a modern retail store" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB8ncp6xgDembEbWilVVul6Trmu-JIuKvM0rFuoXP_sa9dSXodLkSkm5STTsa8gl1YMX9yiCBCMZ_pbOeIoOaSS7zM9vUwUJm-TaUylaKgulxjE7orkKj5qguQga5mu1PNqLGbvnbmYwIxcF_P7gAmMGVNm2Ai6BBK_3qkczmA-3uigd9moRzhAmimPtTOi0mFMvrKJ5In5-MiIuqxP5cXSoWivlBY4BDlEOUF6UHkpNJoIZlEjDEyfOK0lCy5cXMr4C0qQ00XSrvh"/>
-<div class="absolute inset-0 bg-black/50 flex items-end p-6">
-<h3 class="text-2xl font-bold font-display text-white">Retail</h3>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg group">
-<img class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-300" data-alt="Large industrial warehouse with high ceilings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmHQlsYLH1-GSH0nrj9hiBnEUx36ZJfVcu6-1OTyMPO9poRgnuGmSYAcZ6h3dclxe8OL2vEOoNCC0wIcq1596-N_0-1hc4tat8TkvCSxBWNvC3tMwsu9udz8LEHRgInDMgPbWbofw3H3ORpFA2r3csUUj7K8ukpuaulDWtma9Wvsqj9NLfUutffDdFf0mn2X_ytO5sPB1DFPwrUWRRt0BK8Cq57vZ5gFtSh_ebGNc9wtVk1RM7cGCvc8SvnsDeDxIz-UIIk1R7xAD2"/>
-<div class="absolute inset-0 bg-black/50 flex items-end p-6">
-<h3 class="text-2xl font-bold font-display text-white">Industrial</h3>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-lg group">
-<img class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-300" data-alt="Rows of clean, colorful self-storage unit doors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW5eEE7FkqCMOw2DkQ3XBPWVPqFHntGq6IPrfYSCE4mO0_lXuhnhQe-uXrOwkq0xKUcl4K2loE1BtAYMy76S9RjjtSbgiTZ4DUWUsTL5bFQ5bgy7I1-4C7afffOKBzM5a0hP03mNBQ3HnNoYoHmvx3OOSm5Rp2q2onxNBUXG6QGDEyhGQfMlPWbq9EGcprON5VWmGFh8j3GrF73dcThTJZZEa3bS3Rb0EkXqDuuTdZvmm14yDVRijLWhOVgcVWhLw0BDAj5HAAGyvy"/>
-<div class="absolute inset-0 bg-black/50 flex items-end p-6">
-<h3 class="text-2xl font-bold font-display text-white">Self Storage</h3>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- What Makes Capstaq Different -->
-<section class="py-16 sm:py-20 bg-white dark:bg-background-dark/50">
-<div class="container mx-auto px-4">
-<div class="text-center max-w-3xl mx-auto">
-<h2 class="text-3xl font-bold font-display text-text-light dark:text-text-dark sm:text-4xl">What Makes Capstaq Different</h2>
-<p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">Our approach is built on expertise, alignment, and a commitment to quality partnerships.</p>
-</div>
-<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="flex flex-col gap-4 p-8 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark">
-<span class="material-symbols-outlined text-secondary text-4xl">workspace_premium</span>
-<h3 class="text-xl font-bold font-display text-text-light dark:text-text-dark">Experience-Only Platform</h3>
-<p class="text-text-light/80 dark:text-text-dark/80">We exclusively partner with seasoned real estate professionals with a proven track record.</p>
-</div>
-<div class="flex flex-col gap-4 p-8 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark">
-<span class="material-symbols-outlined text-secondary text-4xl">trending_up</span>
-<h3 class="text-xl font-bold font-display text-text-light dark:text-text-dark">Performance-Based</h3>
-<p class="text-text-light/80 dark:text-text-dark/80">Our success is tied to yours. We focus on deals with strong potential for returns.</p>
-</div>
-<div class="flex flex-col gap-4 p-8 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark">
-<span class="material-symbols-outlined text-secondary text-4xl">handshake</span>
-<h3 class="text-xl font-bold font-display text-text-light dark:text-text-dark">Fully Aligned</h3>
-<p class="text-text-light/80 dark:text-text-dark/80">We invest alongside our partners, ensuring our interests are perfectly aligned for success.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Final CTA Banner -->
-<section class="py-16 sm:py-20 bg-primary">
-<div class="container mx-auto px-4 text-center">
-<h2 class="text-3xl font-bold font-display text-white sm:text-4xl lg:text-5xl">Let's Partner Up.</h2>
-<p class="mt-4 text-lg text-white/90 max-w-2xl mx-auto">Ready to secure the capital you need for your next deal? Let's start the conversation.</p>
-<div class="mt-8">
-<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-secondary text-gray-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors mx-auto">
-<span class="truncate">Submit Your Deal Now</span>
-</button>
-</div>
-</div>
-</section>
-</main>
-<footer class="bg-white dark:bg-background-dark/50 border-t border-border-light dark:border-border-dark">
-<div class="container mx-auto px-4 py-12">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="col-span-1 md:col-span-2">
-<h3 class="text-lg font-bold font-display text-text-light dark:text-text-dark">About Capstaq</h3>
-<p class="mt-4 text-sm text-text-light/80 dark:text-text-dark/80">Capstaq is a premier capital partner for experienced real estate sponsors, developers, and operators. We provide strategic LP equity to fuel growth and success.</p>
-</div>
-<div>
-<h3 class="text-lg font-bold font-display text-text-light dark:text-text-dark">Contact Us</h3>
-<ul class="mt-4 space-y-2 text-sm text-text-light/80 dark:text-text-dark/80">
-<li>info@capstaq.com</li>
-<li>(555) 123-4567</li>
-<li>123 Capital Ave, Suite 100<br/>New York, NY 10001</li>
-</ul>
-</div>
-<div>
-<h3 class="text-lg font-bold font-display text-text-light dark:text-text-dark">Stay Connected</h3>
-<p class="mt-4 text-sm text-text-light/80 dark:text-text-dark/80">Sign up for our newsletter to get the latest market insights.</p>
-<form class="mt-4 flex gap-2">
-<input class="flex-grow rounded border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-sm focus:ring-primary focus:border-primary" placeholder="Your email" type="email"/>
-<button class="p-2 rounded bg-primary text-white hover:bg-opacity-90" type="submit">
-<span class="material-symbols-outlined text-base">arrow_forward</span>
-</button>
-</form>
-</div>
-</div>
-<div class="mt-12 border-t border-border-light dark:border-border-dark pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-text-light/60 dark:text-text-dark/60">
-<p>© 2024 Capstaq. All Rights Reserved.</p>
-<div class="flex gap-4 mt-4 sm:mt-0">
-<a class="hover:text-primary" href="#">Privacy Policy</a>
-<a class="hover:text-primary" href="#">Terms of Service</a>
-</div>
-</div>
-</div>
-</footer>
-</div>
-</div>
-</body></html>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 bg-softwhite/90 backdrop-blur border-b border-softwhite/70">
+    <div class="container mx-auto px-4 lg:px-8 flex items-center justify-between py-3">
+      <div class="flex items-center gap-3">
+        <a href="#hero" class="flex items-center gap-3">
+          <img alt="Capstaq logo" src="logo.png" style="height:44px; width:auto; object-fit:contain;" />
+        </a>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-muted">
+        <a href="#hero" class="hover:text-royal transition">Home</a>
+        <a href="#focus" class="hover:text-royal transition">About Us</a>
+        <!-- <a href="#partner" class="hover:text-royal transition">Partner With Us</a> -->
+        <a href="#how" class="hover:text-royal transition">How It Works</a>
+        <!-- <a href="#asset-classes" class="hover:text-royal transition">Asset Classes</a> -->
+        <a href="#difference" class="hover:text-royal transition">Why Capstaq</a>
+        <!-- <a href="#contact" class="hover:text-royal transition">Contact</a> -->
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <!-- <a href="#signin" class="text-sm text-royal hover:text-gold">Sign In</a> -->
+        <!-- <a href="#signup" class="px-3 py-2 rounded-md border border-gold text-royal hover:bg-gold/10 transition">Sign Up</a> -->
+        <!-- <a href="#submit" class="px-3 py-2 rounded-md btn-gold font-semibold">Submit Your Deal</a> -->
+      </div>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#submit" class="px-3 py-2 rounded-md btn-gold font-semibold">Submit Your Deal</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6">
+      <div class="absolute inset-0 -z-10">
+        <!-- <img src="https://images.unsplash.com/photo-1505691723518-36a5b8f4a5b9?q=80&w=2000&auto=format&fit=crop" alt="city skyline" class="w-full h-full object-cover brightness-75">-->
+        <div class="absolute inset-0 bg-gradient-to-br from-[rgba(75,0,130,0.78)] to-[rgba(46,8,84,0.72)] mix-blend-multiply"></div>
+      </div>
+
+      <h1 class="font-display text-4xl lg:text-6xl text-softwhite font-extrabold max-w-3xl leading-tight">
+        Every partnership. Every investment. Every success story all in one ecosystem.
+      </h1>
+      <p class="text-softwhite/90 mt-4 max-w-2xl">
+        Capstaq — Your Real Estate Capital Partner, connecting professionals with the LP equity they need for success.
+      </p>
+
+      <!-- Search bar -->
+      <div class="mt-8 flex items-center bg-softwhite rounded-full shadow-lg max-w-xl w-full overflow-hidden">
+        <input type="text" placeholder="Search for asset class, city, or deal type..." class="flex-1 px-6 py-3 text-plum outline-none" />
+        <button onclick="alert('Search feature coming soon')" class="bg-gold text-plum px-6 py-3 font-semibold">Search</button>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="#submit" class="px-5 py-3 rounded-md btn-gold font-semibold">Submit Your Deal</a>
+        <a href="#schedule" class="px-5 py-3 rounded-md border border-softwhite/60 text-softwhite hover:bg-softwhite/10">Schedule a Call</a>
+      </div>
+    </section>
+
+    <!-- PLATFORM OVERVIEW -->
+    <section id="overview" class="py-16 bg-softwhite text-center">
+      <h2 class="font-display text-3xl text-royal font-bold">Platform Overview</h2>
+      <div class="gold-underline mx-auto mt-4"></div>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
+        <div class="bg-white p-6 rounded-2xl shadow card-lift hover-glow">
+          <h4 class="font-semibold text-royal mb-2">Investor Criteria</h4>
+          <p class="text-sm text-muted">We partner only with experienced and performance-driven investors.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow card-lift hover-glow">
+          <h4 class="font-semibold text-royal mb-2">Benefits</h4>
+          <p class="text-sm text-muted">Gain access to institutional-grade capital and trusted LP networks.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow card-lift hover-glow">
+          <h4 class="font-semibold text-royal mb-2">Join Waitlist</h4>
+          <p class="text-sm text-muted">Be among the first to receive early platform access and insights.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow card-lift hover-glow">
+          <h4 class="font-semibold text-royal mb-2">Market Insights</h4>
+          <p class="text-sm text-muted">Stay informed with curated reports, trends, and case studies.</p>
+        </div>
+      </div>
+    </section>
+     <section id="focus" class="py-14 bg-softwhite text-center max-w-3xl mx-auto px-4">
+      <h2 class="font-display text-3xl text-royal font-bold">Our Focus</h2>
+      <div class="gold-underline mx-auto mt-4"></div>
+      <p class="mt-6 text-muted text-lg">
+        Capstaq is not a crowdfunding or lending platform; we’re a strategic capital partner for experienced operators. We provide LP equity and partnership to accelerate high-quality deals.
+      </p>
+    </section>
+
+    <!-- Golden wave -->
+    <div class="wave">
+      <svg viewBox="0 0 1440 100" class="w-full h-20 block"><path d="M0,20 C320,80 640,0 960,32 C1180,56 1320,84 1440,48 L1440 0 L0 0 Z" fill="#D4AF37"></path></svg>
+    </div>
+
+    <!-- WHO WE PARTNER WITH -->
+    <section id="partner" class="py-14 bg-gradient-to-b from-royal to-plum text-softwhite text-center">
+      <h2 class="font-display text-3xl font-bold">Who We Partner With</h2>
+      <div class="gold-underline mx-auto mt-4"></div>
+      <p class="mt-4 text-softwhite/90 max-w-3xl mx-auto">
+        Syndicators, Developers, Sponsors, Property Owners, Operators — tailored capital solutions for proven professionals.
+      </p>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto px-4">
+        <div class="bg-white/5 p-6 rounded-2xl card-lift hover-glow"><h3 class="font-semibold">Syndicators</h3><p class="text-softwhite/80 text-sm mt-2">Deal leaders building investment platforms.</p></div>
+        <div class="bg-white/5 p-6 rounded-2xl card-lift hover-glow"><h3 class="font-semibold">Developers</h3><p class="text-softwhite/80 text-sm mt-2">Ground-up construction & development equity.</p></div>
+        <div class="bg-white/5 p-6 rounded-2xl card-lift hover-glow"><h3 class="font-semibold">Sponsors</h3><p class="text-softwhite/80 text-sm mt-2">Acquisition sponsors raising capital.</p></div>
+        <div class="bg-white/5 p-6 rounded-2xl card-lift hover-glow"><h3 class="font-semibold">Property Owners</h3><p class="text-softwhite/80 text-sm mt-2">Recapitalizations & strategic liquidity.</p></div>
+        <div class="bg-white/5 p-6 rounded-2xl card-lift hover-glow"><h3 class="font-semibold">Operators</h3><p class="text-softwhite/80 text-sm mt-2">Capital for repositioning & value-add.</p></div>
+      </div>
+    </section>
+     <section id="how" class="py-14 bg-softwhite">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="font-display text-3xl text-royal font-bold">How It Works</h2>
+          <div class="gold-underline mx-auto mt-4"></div>
+          <p class="mt-4 text-muted">A streamlined process from submission to success in four clear steps.</p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="p-6 bg-white rounded-2xl shadow card-lift hover-glow text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-royal text-softwhite flex items-center justify-center font-semibold text-lg">1</div>
+            <h4 class="mt-4 font-semibold text-royal">Submit Deal</h4>
+            <p class="text-sm text-muted mt-2">Provide project details through our secure portal.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-2xl shadow card-lift hover-glow text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-royal text-softwhite flex items-center justify-center font-semibold text-lg">2</div>
+            <h4 class="mt-4 font-semibold text-royal">Review &amp; Analysis</h4>
+            <p class="text-sm text-muted mt-2">Comprehensive due diligence.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-2xl shadow card-lift hover-glow text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-royal text-softwhite flex items-center justify-center font-semibold text-lg">3</div>
+            <h4 class="mt-4 font-semibold text-royal">Partner Matching</h4>
+            <p class="text-sm text-muted mt-2">We connect your deal to aligned LP investors.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-2xl shadow card-lift hover-glow text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-royal text-softwhite flex items-center justify-center font-semibold text-lg">4</div>
+            <h4 class="mt-4 font-semibold text-royal">Get Funded</h4>
+            <p class="text-sm text-muted mt-2">Close with the right capital partner.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- golden wave -->
+    <div class="wave">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-20 block">
+        <path d="M0,20 C320,80 640,0 960,32 C1180,56 1320,84 1440,48 L1440 0 L0 0 Z" fill="#D4AF37"></path>
+      </svg>
+    </div>
+
+    <!-- ASSET CLASSES (purple background) -->
+    <section id="asset-classes" class="py-14 bg-gradient-to-br from-royal to-plum text-softwhite">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="font-display text-3xl font-bold">Asset Classes We Work On</h2>
+          <div class="gold-underline mx-auto mt-4"></div>
+          <p class="mt-4 text-softwhite/90">We fund Multifamily, Retail, Industrial, Self Storage and other commercial asset classes.</p>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Multifamily -->
+          <article class="relative rounded-2xl overflow-hidden h-64 card-lift img-hover-zoom">
+            <img class="img-cover"
+                 src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1400&auto=format&fit=crop"
+                 alt="Multifamily"
+                 onerror="this.onerror=null;this.src='https://picsum.photos/id/1012/1400/900'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-6 flex items-end">
+              <div>
+                <h3 class="text-white text-2xl font-display">Multifamily</h3>
+                <p class="text-white/90 text-sm mt-1">Value-add & income-producing residential investments.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Retail -->
+          <article class="relative rounded-2xl overflow-hidden h-64 card-lift img-hover-zoom">
+            <img class="img-cover"
+                 src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1400&auto=format&fit=crop"
+                 alt="Retail"
+                 onerror="this.onerror=null;this.src='https://picsum.photos/id/1020/1400/900'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-6 flex items-end">
+              <div>
+                <h3 class="text-white text-2xl font-display">Retail</h3>
+                <p class="text-white/90 text-sm mt-1">Prime retail centers and mixed-use retail strategies.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Industrial -->
+          <article class="relative rounded-2xl overflow-hidden h-64 card-lift img-hover-zoom">
+            <img class="img-cover"
+                 src="https://images.unsplash.com/photo-1581093588401-71c267d4a5c6?q=80&w=1400&auto=format&fit=crop"
+                 alt="Industrial warehouse"
+                 onerror="this.onerror=null;this.src='https://picsum.photos/id/1006/1400/900'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-6 flex items-end">
+              <div>
+                <h3 class="text-white text-2xl font-display">Industrial</h3>
+                <p class="text-white/90 text-sm mt-1">Logistics, warehouses, and large-format assets.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Self Storage -->
+          <article class="relative rounded-2xl overflow-hidden h-64 card-lift img-hover-zoom">
+            <img class="img-cover"
+                 src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop"
+                 alt="Self Storage"
+                 onerror="this.onerror=null;this.src='https://picsum.photos/id/1019/1400/900'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-6 flex items-end">
+              <div>
+                <h3 class="text-white text-2xl font-display">Self Storage</h3>
+                <p class="text-white/90 text-sm mt-1">Resilient storage-focused investments.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- soft white wave -->
+    <div class="wave">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-20 block">
+        <path d="M0,80 C200,120 400,40 720,58 C1040,76 1240,110 1440,82 L1440 100 L0 100 Z" fill="#F8F5F2"></path>
+      </svg>
+    </div>
+
+    <!-- WHAT MAKES CAPSTAQ DIFFERENT -->
+    <section id="difference" class="py-14 bg-softwhite">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="font-display text-3xl text-royal font-bold">What Makes Capstaq Different</h2>
+          <div class="gold-underline mx-auto mt-4"></div>
+          <p class="mt-4 text-muted">Experience-only, performance-driven, fully aligned partnership model.</p>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow card-lift hover-glow">
+            <div class="text-2xl mb-3">🏅</div>
+            <h3 class="font-semibold text-royal">Experience-Only Platform</h3>
+            <p class="text-sm text-muted mt-2">We work exclusively with seasoned professionals.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow card-lift hover-glow">
+            <div class="text-2xl mb-3">📈</div>
+            <h3 class="font-semibold text-royal">Performance-Based</h3>
+            <p class="text-sm text-muted mt-2">Incentives tied to deal outcomes.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow card-lift hover-glow">
+            <div class="text-2xl mb-3">🤝</div>
+            <h3 class="font-semibold text-royal">Fully Aligned</h3>
+            <p class="text-sm text-muted mt-2">We invest alongside partners for alignment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- golden wave -->
+    <div class="wave">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-20 block">
+        <path d="M0,20 C320,80 640,0 960,32 C1180,56 1320,84 1440,48 L1440 0 L0 0 Z" fill="#D4AF37"></path>
+      </svg>
+    </div>
+
+    <!-- CTA FINAL -->
+    <section id="cta-final" class="py-16 bg-gradient-to-br from-royal to-plum text-softwhite">
+      <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold">Let's Partner Up</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-softwhite/90">Ready to secure the capital you need for your next deal? Choose a path below.</p>
+        <div class="mt-6 flex justify-center gap-4">
+          <a href="#submit" class="px-6 py-3 rounded-md btn-gold font-semibold">Submit Your Deal</a>
+          <a href="#schedule" class="px-6 py-3 rounded-md border border-softwhite/30 text-softwhite">Schedule a Call</a>
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <!-- The rest of your original sections follow here (Our Focus, Partner With Us, etc.) -->
+    <!-- You can paste your sections from your existing code below this point. -->
+    
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-plum text-softwhite py-10">
+    <div class="container mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div>
+        <h3 class="font-display text-2xl text-gold mb-1">Capstaq</h3>
+        <p class="text-softwhite/90 text-sm">Your Real Estate Capital Partner — raising LP equity for experienced professionals.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-1 text-softwhite/80 text-sm">
+          <li><a href="#focus" class="hover:text-gold">Our Focus</a></li>
+          <li><a href="#partner" class="hover:text-gold">Partners</a></li>
+          <li><a href="#difference" class="hover:text-gold">Why Capstaq</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Resources</h4>
+        <ul class="space-y-1 text-softwhite/80 text-sm">
+          <li><a href="#" class="hover:text-gold">Blog</a></li>
+          <li><a href="#" class="hover:text-gold">Case Studies</a></li>
+          <li><a href="#" class="hover:text-gold">Guides</a></li>
+          <li><a href="#" class="hover:text-gold">Market Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Connect</h4>
+        <p class="text-softwhite/80 text-sm mb-2">info@capstaq.com<br/>+1 800 555 0199</p>
+        <a href="#" class="text-gold hover:text-softwhite text-sm">LinkedIn →</a>
+      </div>
+    </div>
+    <div class="mt-6 text-center text-softwhite/70 text-sm border-t border-white/10 pt-4">
+      © <span id="year"></span> Capstaq. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
